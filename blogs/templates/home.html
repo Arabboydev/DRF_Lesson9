@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home page
+{% endblock title %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+    {% for blog in blogs %}
+        <div class="blog">
+            <h2>{{ blog.title }}</h2>
+            <p>{{ blog.body }}</p>
+            <img src="{{ blog.image.url }}" alt="image">
+            <a href="{% url 'blogs:update' pk=blog.pk %}">update</a>
+            <a href="{% url 'blogs:delete' pk=blog.pk %}">delete</a>
+        </div>
+    {% endfor %}
+{% endblock content %}

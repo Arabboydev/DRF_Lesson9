@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+<!--        footer {-->
+<!--            background-color: #333;-->
+<!--            color: #fff;-->
+<!--            text-align: center;-->
+<!--            padding: 10px;-->
+<!--            position: fixed;-->
+<!--            bottom: 0;-->
+<!--            width: 600%;-->
+<!--        }-->
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+
+        <ul>
+            <li><a href="{% url 'blogs:home' %}">Home</a></li>
+            <li><a href="{% url 'blogs:post_create' %}">Create Post</a></li>
+
+        </ul>
+    </nav>
+
+
+    <div class="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 Your Site Name</p>
+    </footer>
+
+
+</body>
+</html>
